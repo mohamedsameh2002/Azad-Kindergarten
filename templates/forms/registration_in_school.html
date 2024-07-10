@@ -1,0 +1,479 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الالتحاق بالمدرسة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- header -->
+    {% include "components/header.html" %}
+    <!-- header -->
+
+    <!-- hero -->
+    {% include "components/hero.html" %}
+    <!-- hero -->
+
+    <div class="flex justify-center h-fit py-24 items-center">
+        <div class="container flex-col justify-center items-center flex ">
+            <h1 class="font-extrabold text-3xl max-md:text-xl font-gray-500 mb-24 w-full text-center text-red-500 ">
+                استمارة طلب
+                الالتحاق بالمدرسة
+            </h1>
+            <form class="w-full  max-w-2xl max-md:px-12" action="{% url 'forms:register' %}" method="POST">
+                {% csrf_token %}
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            اسم الطالب
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="text" placeholder="أدخل اسم الطالب" name="student_name">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            الرقم الوطني
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="number" max="1000000" placeholder="الرقم الوطني" name="id_number">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            اسم الأم
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="text" placeholder="اسم الأم" name="mother_name">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            مكان الميلاد
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" placeholder="مكان الميلاد" name="place_birth">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            تاريخ الميلاد
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="date" placeholder="تاريخ الميلاد" name="date_of_birth">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            الجنسية
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" placeholder="الجنسية" name="nationality">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-12">
+
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-state">
+                            الجنس
+                        </label>
+                        <div class="relative">
+                            <select required
+                                class="block appearance-none w-full  border border-gray-200 text-gray-700 py-3  px-4 pr-8 rounded leading-tight focus:outline-none focus:border-sky-500 "
+                                id="grid-state" name="gender">
+                                <option>ذكر</option>
+                                <option>انثي</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-state">
+                            الوضع الصحي للطالب
+                        </label>
+                        <div class="relative">
+                            <select required
+                                class="block appearance-none w-full  border border-gray-200 text-gray-700 py-3  px-4 pr-8 rounded leading-tight focus:outline-none focus:border-sky-500 "
+                                name="health_status">
+                                <option>سليم</option>
+                                <option>مريض</option>
+                                <option>أخري</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-zip">
+                            علاقة ولي الامر بالطالب
+                        </label>
+                        <input maxlength="18" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            id="grid-zip" type="text" name="parentstudent_relations"
+                            placeholder="علاقة ولي الامر بالطالب">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            المستوى التعليمي للأب
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="text" placeholder="المستوى التعليمي للأب" name="father_edu_lvl">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            المستوى التعليمي للأم
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" placeholder="المستوى التعليمي للأم" name="mother_edu_lvl">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            عمل الأب
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="text" placeholder="عمل الأب" name="father_job">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            عمل الأم
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" placeholder="عمل الأم" name="mothre_job">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap -mx-3 mb-12">
+
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-state">
+                            عدد افراد الأسرة(مع الوالدين)
+                        </label>
+                        <div class="relative">
+                            <input maxlength="18" required
+                                class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                                type="number" max="1000000" name="number_family" placeholder="عدد الأفراد">
+
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-state">
+                            ترتيب الطالب بين اخوته
+                        </label>
+                        <div class="relative">
+                            <input maxlength="18" required
+                                class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                                type="number" max="1000000" name="Stud_ranking" placeholder="ترتيب الطالب ">
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-state">
+                            دخل الأسرة الشهري
+                        </label>
+                        <div class="relative">
+                            <input maxlength="18" required
+                                class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                                type="text" name="family_income" placeholder="دخل الأسرة">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            هاتف الأب
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="number" max="1000000" placeholder="هاتف الأب" name="father_phone">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            هاتف الأم
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="number" max="1000000" placeholder="هاتف الأم" name="mother_phone">
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            اسم ولي الامر
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="text" placeholder="اسم ولي الامر" name="guardian_name">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            هاتف ولي الأمر
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="number" max="1000000" placeholder="هاتف ولي الأمر" name="guardian_phone">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            مكان السكن
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="text" placeholder="مكان السكن" name="living">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            صفحة بطاقة الغوث
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" placeholder="صفحة بطاقة الغوث" name="relief_card_page">
+                    </div>
+                </div>
+
+
+                <div class="flex flex-wrap -mx-3 my-6 -my-4">
+                    <div class="flex items-center mb-4">
+                        <input maxlength="30" id="default-checkbox" required type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="default-checkbox" class="ms-2 font-medium font-bold text-gray-500">أنا ولي أمر
+                            الطالب ..اقر بصحة البيانات اعلاه و اتحمل المسؤولية الكاملة علي اي خطأ فيها. </label>
+                    </div>
+
+                </div>
+
+
+                <!-- transport -->
+                <h2 class="font-extrabold text-lg  font-gray-500 my-16 w-full text-center text-red-500 ">
+                    نموذج الاشتراك بالمواصلات
+                </h2>
+                <div class="flex flex-wrap -mx-3 mb-12">
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-state">
+                            هل ترغب بالاشتراك في النقل؟
+                        </label>
+                        <div class="relative">
+                            <select required
+                                class="block appearance-none w-full  border border-gray-200 text-gray-700 py-3  px-4 pr-8 rounded leading-tight focus:outline-none focus:border-sky-500 "
+                                id="grid-state" name="would_subscribe">
+                                <option>نعم</option>
+                                <option>لا</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-state">
+                            صفة النقل
+                        </label>
+                        <div class="relative">
+                            <select required
+                                class="block appearance-none w-full  border border-gray-200 text-gray-700 py-3  px-4 pr-8 rounded leading-tight focus:outline-none focus:border-sky-500 "
+                                name="transport_type">
+                                <option>ذهاب</option>
+                                <option>أياب</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="residence_area">
+                            منطقة السكن
+                        </label>
+                        <input maxlength="18" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" name="residence_area" placeholder="منطقة السكن">
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6 -my-4">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-password">
+                            اسم الشارع
+                        </label>
+                        <input required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" placeholder="اسم الشارع" name="stret_name">
+                    </div>
+                </div>
+                <!-- transport -->
+
+                <!-- student_information -->
+                <h2 class="font-extrabold text-lg  font-gray-500 my-16 w-full text-center text-red-500 ">
+                    معلومات شخصية <span class="text-sm font-normal mx-2">(تعبأ من قبل ولي الأمر)</span>
+                </h2>
+                <div class="flex flex-wrap -mx-3 mb-12">
+
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="residence_area">
+                            من سيحضر الطالب الي الروضة؟
+                        </label>
+                        <input maxlength="18" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            id="grid-zip" type="text" name="who_student_attend" placeholder="من سيحضر الطالب ">
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="residence_area">
+                            من سيصحب الطالب الي البيت؟
+                        </label>
+                        <input maxlength="18" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            id="grid-zip" type="text" name="Who_accompany_student" placeholder="من سيصحب الطالب">
+                    </div>
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="residence_area">
+                            مع من يعيش الطالب؟
+                        </label>
+                        <input maxlength="18" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            id="grid-zip" type="text" name="Who_student_live_with" placeholder="مع من يعيش الطالب">
+                    </div>
+                </div>
+
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2"
+                            for="grid-first-name">
+                            هل يمتلك الطالب موهبة خاصة؟
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8  rounded py-3  px-4 mb-3 leading-tight focus:outline-none focus:border-sky-500"
+                            type="text" placeholder="هل يمتلك الطالب موهبة" name="student_have_talent">
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            هل يستطيع طفلك استخدام الحمام بمفرده؟
+                        </label>
+                        <input maxlength="30" required
+                            class="appearance-none block w-full  text-gray-700 border placeholder:text-sm  placeholder:h-8 border-gray-200 rounded py-3  px-4 leading-tight focus:outline-none focus:border-sky-500 "
+                            type="text" placeholder="هل يستطيع طفلك استخدام الحمام" name="can_child_use_bathroom">
+                    </div>
+                </div>
+
+                <!-- textareas -->
+                <div class="flex my-2 flex-wrap -mx-3 mb-6 -my-4">
+                    <div class="w-full px-3">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            هل يعاني طفلك من حساسية تجاه غذاء او دواء معين؟
+                        </label>
+                        <textarea name="child_suffer_food_medicine" maxlength="60" rows="1"
+                            class="block p-2.5 placeholder:text-sm  text-xl w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  outline-none"
+                            placeholder="هل يعاني طفلك من حساسية تجاه غذاء او دواء معين؟"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex my-2 flex-wrap -mx-3 mb-6 -my-4">
+                    <div class="w-full px-3">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            هل يعاني ابنك من امراض معينة؟ (الرجاء ذكرها)
+                        </label>
+                        <textarea name="son_suffer_diseases" maxlength="60" rows="1"
+                            class="block p-2.5 placeholder:text-sm  text-xl w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  outline-none"
+                            placeholder="هل يعاني ابنك من امراض معينة؟"></textarea>
+                    </div>
+                </div>
+                <div class="flex my-2 flex-wrap -mx-3 mb-6 -my-4">
+                    <div class="w-full px-3">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            رقم الطوارئ , مع ذكر درجة القرابة
+                        </label>
+                        <textarea required name="emergency_number" maxlength="60" rows="1"
+                            class="block p-2.5 placeholder:text-sm  text-xl w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  outline-none"
+                            placeholder="رقم الطوارئ مع ذكر درجة القرابة"></textarea>
+                    </div>
+                </div>
+                <div class="flex my-2 flex-wrap -mx-3 mb-6 -my-4">
+                    <div class="w-full px-3">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            اقرب عنوان في حال حدوث اي طارئ
+                        </label>
+                        <textarea required name="nearest_address" maxlength="60" rows="1"
+                            class="block p-2.5 placeholder:text-sm  text-xl w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  outline-none"
+                            placeholder="اقرب عنوان في حال حدوث اي طارئ"></textarea>
+                    </div>
+                </div>
+                <div class="flex my-2 flex-wrap -mx-3 mb-6 -my-4">
+                    <div class="w-full px-3">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            هل يوجد اي ضروف خاصة تتعلق بطفلك يجب مراعتها بالروضة؟ الرجاء ذكرها
+                        </label>
+                        <textarea name="There_special_circumstances" maxlength="60" rows="1"
+                            class="block p-2.5 placeholder:text-sm  text-xl w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  outline-none"
+                            placeholder="هل يوجد اي ضروف خاصة تتعلق بطفلك"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex my-2 flex-wrap -mx-3 mb-6 -my-4">
+                    <div class="w-full px-3">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2">
+                            ملاحظات اخرى تحب اطلاعنا عليها
+                        </label>
+                        <textarea name="other_comments" maxlength="60" rows="1"
+                            class="block p-2.5 placeholder:text-sm  text-xl w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  outline-none"
+                            placeholder="هل يوجد اي ضروف خاصة تتعلق بطفلك"></textarea>
+                    </div>
+                </div>
+
+
+                <!-- student_information -->
+
+                <button type="submit"
+                    class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">ارسال</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
