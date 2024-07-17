@@ -263,7 +263,7 @@ def generate_pdf(l,v,*args, **kwargs):
 
 
 
-def send_email_with_pdf(column_1_lable,column_2_lable,column_1_value,column_2_value,three_val,email):
+def send_email_with_pdf(column_1_lable,column_2_lable,column_1_value,column_2_value,three_val):
     subject = "PDF Attachment"
     body = "Please find the PDF attached."
     from_email = 'sistar32.m@gmail.com'

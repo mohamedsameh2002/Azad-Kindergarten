@@ -14,7 +14,7 @@
 <body class="bg-gradient-to-r from-yellow-100/20 via-white to-yellow-100/20">
 
     <!-- header -->
-    
+
     {% include "components/header.html" %}
     <!-- header -->
 
@@ -23,9 +23,6 @@
         <!-- hero -->
         {% include "components/hero.html" %}
         <!-- hero -->
-
-        <img class="w-full absolute -bottom-44 max-md:-bottom-12 bg-cover" src="{% static 'images/clouds/clouds2 1.png' %}" alt="icon">
-
         <div class=" container my-32 flex flex-col justify-center items-center gap-24">
 
             <!-- lest start  -->
@@ -41,35 +38,22 @@
             <div class="my-32  w-full flex-col gap-20">
                 <div class="flex max-md:flex-col w-full justify-around items-center">
                     <div class="flex max-md:w-full max-md:px-4 lg:pr-40 flex-col w-3/5 items-center justify-start">
-                        <h3 class="font-extrabold text-xl" style="color: #5f9598;">الانشطة
-                            و الفاعليات</h3>
+                        <h3 class="font-extrabold text-xl" style="color: #5f9598;">لعبة الذاكرة الممتعة!</h3>
                         <img class="w-48 mb-6 mt-2"
                             src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=457,fit=scale-down,q=100/Yg29bxB25nFq1r6k/vector-32-d95glvVqMEC2Zqyg.png"
                             alt="">
-                        <p class="text-xl max-md:text-center text-zinc-700">تجربة لا تُنسى تنتظرك في قسم الأنشطة
-                            والفعاليات بموقع ازاد، حيث
-                            يتم
-                            تنظيم مجموعة متنوعة من
-                            الفعاليات الثقافية والترفيهية لتعزيز التواصل وتنمية المهارات.</p>
+                        <p class="text-xl text-zinc-700 text-center">استمتع بتحدي الذاكرة مع 12 كروت مقلوبة! اختر الكرتين المتشابهين وحسّن مهاراتك العقلية بطريقة مسلية. هل يمكنك العثور على جميع الأزواج المتطابقة؟ جرب الآن</p>
                     </div>
-                    <div class="flex justify-center items-center">
-                        <img class="w-1/2 max-md:w-4/5"
+                    <div class="flex justify-center items-center w-3/12 max-md:w-4/5">
+                        <img class="w-full"
                             src="https://assets.zyrosite.com/Yg29bxB25nFq1r6k/boy-with-kite-gif-YanB4BW5P6hZ7gow.gif"
                             alt="">
                     </div>
                 </div>
 
                 <div class="justify-center h-screen w-full h-full  items-center flex ">
-                    <div class="wrapper w-3/5 h-3/4 max-md:w-full sm:mx-12  justify-start items-center flex flex-col rounded-xl mt-10 ">
-                        <div class="flex w-full mt-4 justify-between	items-center">
-                            <img class="w-32 max-md:w-12" src="{% static 'images/clouds/cloud-02.png' %}" alt="icon">
-                            <h3 style="color: #5f9598;" class="text-xl max-lg:text-lg  w-full text-center mb-8">اختر
-                                الأجابة الصحيحه
-                                من بين حروف (<span id="challenge-letters"></span>)
-                            </h3>
-                            <img class="w-32 max-md:w-12" src="{% static 'images/clouds/cloud-03.png' %}" alt="icon">
-                        </div>
-
+                    <div
+                        class="wrapper w-3/5 h-3/4 max-md:w-full sm:mx-12  justify-around items-center flex flex-col rounded-xl mt-10 ">
                         <ul class="cards w-1/2 h-1/2 max-lg:w-3/4 flex gap-6 flex-wrap justify-between">
                             <li class="card">
                                 <div class="view front-view">
@@ -167,12 +151,12 @@
                                     <img src="" alt="card-img">
                                 </div>
                             </li>
-                            <div class="details">
-                                <p class="flips">Flips: <span><b class="text-orange-500 font-bold text-xl">0</b></span>
-                                </p>
-                                <button>اعادة تعيين</button>
-                            </div>
                         </ul>
+                        <div class="details w-1/2 max-lg:w-3/4">
+                            <p class="flips">Flips: <span><b class="text-orange-500 font-bold text-xl">0</b></span>
+                            </p>
+                            <button>ابدأ اللعب</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -183,20 +167,15 @@
             <div class="flex my-32  flex-col justify-center items-center">
                 <div class="flex max-md:flex-col w-full justify-around items-center">
                     <div class="flex max-md:w-full max-md:px-4 lg:pr-40 flex-col w-3/5 items-center justify-start">
-                        <h3 class="font-extrabold text-xl" style="color: #5f9598;">الانشطة
-                            و الفاعليات</h3>
+                        <h3 class="font-extrabold text-xl" style="color: #5f9598;">لعبة البازل الرائعة!</h3>
                         <img class="w-48 mb-6 mt-2"
                             src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=457,fit=scale-down,q=100/Yg29bxB25nFq1r6k/vector-32-d95glvVqMEC2Zqyg.png"
                             alt="">
-                        <p class="text-xl max-md:text-center text-zinc-700">تجربة لا تُنسى تنتظرك في قسم الأنشطة
-                            والفعاليات بموقع ازاد، حيث
-                            يتم
-                            تنظيم مجموعة متنوعة من
-                            الفعاليات الثقافية والترفيهية لتعزيز التواصل وتنمية المهارات.</p>
+                        <p class="text-xl text-zinc-700 text-center">اجمع القطع وأكمل الصور مع لعبة البازل الممتعة! لدينا 4 صور تحتاج إلى تجميعها، مما يساعد الأطفال على تحسين مهارات التفكير المنطقي والإبداع بطريقة مسلية. هل يمكنك إكمال جميع الصور؟ جرب الآن واستمتع باللعب!</p>
                     </div>
-                    <div class="flex justify-center items-center">
-                        <img class="w-1/2 max-md:w-4/5"
-                            src="https://assets.zyrosite.com/Yg29bxB25nFq1r6k/boy-with-kite-gif-YanB4BW5P6hZ7gow.gif"
+                    <div class="flex justify-center items-center w-3/12 max-md:w-4/5">
+                        <img class="w-full"
+                            src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=352,h=362,fit=crop/Yg29bxB25nFq1r6k/1-11-mnl3aOJB5Pc3R0Rr.png"
                             alt="">
                     </div>
                 </div>
@@ -216,55 +195,50 @@
             <div class="my-32  flex w-full flex-col gap-20">
                 <div class="flex max-md:flex-col w-full justify-around items-center">
                     <div class="flex max-md:w-full max-md:px-4 lg:pr-40 flex-col w-3/5 items-center justify-start">
-                        <h3 class="font-extrabold text-xl" style="color: #5f9598;">الانشطة
-                            و الفاعليات</h3>
+                        <h3 class="font-extrabold text-xl" style="color: #5f9598;">لعبة الصوت والصورة!</h3>
                         <img class="w-48 mb-6 mt-2"
                             src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=457,fit=scale-down,q=100/Yg29bxB25nFq1r6k/vector-32-d95glvVqMEC2Zqyg.png"
                             alt="">
-                        <p class="text-xl max-md:text-center text-zinc-700">تجربة لا تُنسى تنتظرك في قسم الأنشطة
-                            والفعاليات بموقع ازاد، حيث
-                            يتم
-                            تنظيم مجموعة متنوعة من
-                            الفعاليات الثقافية والترفيهية لتعزيز التواصل وتنمية المهارات.</p>
+                        <p class="text-xl text-zinc-700 text-center">استمتع بلعبة الصوت والصورة الشيقة! استمع إلى المقطع الصوتي واختر الصورة التي تتطابق معه. تساعد هذه اللعبة الأطفال على تحسين مهارات الاستماع والتعرف على الأصوات بطريقة ترفيهية. هل يمكنك اختيار الصورة الصحيحة؟ جرب الآن!</p>
                     </div>
-                    <div class="flex justify-center items-center">
-                        <img class="w-1/2 max-md:w-4/5"
-                            src="https://assets.zyrosite.com/Yg29bxB25nFq1r6k/boy-with-kite-gif-YanB4BW5P6hZ7gow.gif"
+                    <div class="flex justify-center items-center w-3/12 max-md:w-4/5">
+                        <img class="w-full"
+                            src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=106,h=115,fit=crop,trim=0;0;0;60.70175438596491/Yg29bxB25nFq1r6k/character-YZ9bPp5a66ipv61j.png"
                             alt="">
                     </div>
                 </div>
-
-                <div class="justify-center  flex-col  w-full   items-center flex ">
-                    <h2 id="the-question" class="bg-orange-500 text-white shadow-xl py-8 text-xl px-6 w-11/12 font-extrabold">ما هو الحيوان
-                        الذي يسمي ملك الغابة</h2>
-                    <div class="flex pt-20 justify-between max-md:gap-10 max-md:flex-col items-center">
-                        <div class="w-4/12 max-md:w-11/12">
-                            <img id="image-question" name="" class="w-full rounded-lg" src="{% static 'images/puzzle/2/10.png' %}" alt="">
-                        </div>
-                        <ul class="flex w-2/5 max-md:w-3/4 gap-16 max-md:gap-5  justify-center items-center flex-col">
-                            <li  class="answer relative cursor-pointer hover:bg-yellow-700 duration-150 rounded-xl w-full py-4 bg-yellow-600">
-                                <span  class="top-0 p-8 -right-4 rounded-b-full rounded-l-full bg-yellow-700 flex justify-center items-center w-12 h-12 text-white text-2xl font-bold absolute" >1</span>
-                                <p class="font-bold text-white text-2xl max-md:text-lg"></p>
+                <div id="questions-done" class="justify-center w-full items-center flex hidden ">
+                    <img class="w-10/12 md:w-4/6 rounded-lg" src="{% static 'images/questions/5240177.jpg' %}" alt="">
+                </div>
+                <div id="questions-game-container" class="justify-center flex-col w-full items-center flex ">
+                    <audio id="the-audio" controls  class="w-1/2" >
+                    </audio>
+                    <div class="flex pt-20 justify-around gap-12 max-md:flex-col items-center">
+                        <ul class="flex  gap-16 max-md:gap-5  justify-center items-center max-md:flex-col">
+                            <li class="answer w-1/4 max-md:w-3/4 cursor-pointer  rounded-xl py-4 ">
+                                <img class="w-full rounded-lg" src="{% static 'images/puzzle/2/' %}" alt="">
                             </li>
-                            <li  class="answer relative cursor-pointer hover:bg-fuchsia-700 duration-150 rounded-xl w-full py-4 bg-fuchsia-600">
-                                <span  class="top-0 p-8 -right-4 rounded-b-full rounded-l-full bg-fuchsia-700 flex justify-center items-center w-12 h-12 text-white text-2xl font-bold absolute" >2</span>
-                                <p class="font-bold text-white text-2xl max-md:text-lg"></p>
+                            <li class="answer w-1/4 max-md:w-3/4 cursor-pointer  rounded-xl py-4 ">
+                                <img class="w-full rounded-lg" src="{% static 'images/puzzle/2/' %}" alt="">
                             </li>
-                            <li  class="answer relative cursor-pointer hover:bg-teal-700 duration-150 rounded-xl w-full py-4 bg-teal-600">
-                                <span  class="top-0 p-8 -right-4 rounded-b-full rounded-l-full bg-teal-700 flex justify-center items-center w-12 h-12 text-white text-2xl font-bold absolute" >3</span>
-                                <p class="font-bold text-white text-2xl max-md:text-lg"></p>
+                            <li class="answer w-1/4 max-md:w-3/4 cursor-pointer  rounded-xl py-4 ">
+                                <img class="w-full rounded-lg" src="{% static 'images/puzzle/2/' %}" alt="">
                             </li>
                         </ul>
                         <div class="flex md:flex-col justify-center items-center gap-10">
-                            <div class="flex flex-col bg-cyan-600 items-center w-32 max-md:w-10 rounded-full h-fit p-8 -rotate-12">
+                            <div
+                                class="flex flex-col bg-cyan-600 items-center w-32 max-md:w-10 rounded-full h-fit p-8 -rotate-12">
                                 <p class=" font-bold text-white">الكل</p>
-                                <span id="all-questions" class="  text-4xl max-md:text-lg font-bold text-white  ">10</span>
+                                <span id="all-questions"
+                                    class="  text-4xl max-md:text-lg font-bold text-white  ">10</span>
                             </div>
-                            <div class="flex flex-col bg-green-700 items-center w-32 max-md:w-10 rounded-full h-fit p-8 -rotate-12">
+                            <div
+                                class="flex flex-col bg-green-700 items-center w-32 max-md:w-10 rounded-full h-fit p-8 -rotate-12">
                                 <p class=" font-bold text-white">الصواب</p>
                                 <span id="the-correct" class="  text-4xl max-md:text-lg font-bold text-white  ">0</span>
                             </div>
-                            <div class="flex flex-col bg-red-600 items-center w-32 max-md:w-10 rounded-full h-fit p-8 -rotate-12">
+                            <div
+                                class="flex flex-col bg-red-600 items-center w-32 max-md:w-10 rounded-full h-fit p-8 -rotate-12">
                                 <p class=" font-bold text-white">الخطأ</p>
                                 <span id="the-wrong" class="  text-4xl max-md:text-lg font-bold text-white ">0</span>
                             </div>
@@ -288,9 +262,12 @@
                     {% csrf_token %}
                     <!-- hidden inputs -->
                     <input type="text" id="memory-game-fld" hidden name="memory_game_flips">
+                    <input type="text" id="puzzle-game-fld" hidden name="puzzle_game_flips">
+                    <input type="text" id="questions-game-fld" hidden name="questions_game_worng">
                     <!-- hidden inputs -->
 
-                    <h3 class="font-extrabold text-2xl max-md:text-xl max-md:text-center font-gray-500 my-16 " style="color: #5f9598;">
+                    <h3 class="font-extrabold text-2xl max-md:text-xl max-md:text-center font-gray-500 my-16 "
+                        style="color: #5f9598;">
                         ادخل اسمك و بريدك لمعرفة ترتيبك بين المتنافسين
                     </h3>
                     <div class="flex flex-col gap-5 w-full">

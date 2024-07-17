@@ -1,13 +1,9 @@
 export const Questions = [
-    ['ما هو الحيوان الذي يسمي ملك الغابة', 'الثعلب', 'الأسد', 'الدب', ['/static/images/puzzle/1/10.png', 'الأسد']],
-    ['كلمة تبدأ بحرف ال (س)', 'صاروخ', 'طيارة', 'سيارة', ['/static/images/puzzle/1/2.png', 'سيارة']],
-    ['ما هو الحيوان الذي يملك خرطوم طويل', 'الفيل', 'النمر', 'الزرافة', ['/static/images/puzzle/1/10.png', 'الفيل']],
-    ['ما هو الطائر الذي لا يستطيع الطيران', 'النعامة', 'الحمامة', 'الببغاء', ['/static/images/puzzle/1/10.png', 'النعامة']],
-    ['ما هو الحيوان الذي يعيش في الماء', 'التمساح', 'الذئب', 'القرد', ['/static/images/puzzle/1/10.png', 'التمساح']],
-    ['ما هو الحيوان الذي يطير في الليل', 'البومة', 'العصفور', 'الدجاجة', ['/static/images/puzzle/1/10.png', 'البومة']],
-    ['ما هو الحيوان الذي يملك قرون كبيرة', 'الثور', 'القط', 'الفيل', ['/static/images/puzzle/1/10.png', 'الثور']],
-    ['ما هو الحيوان الذي يغير لونه حسب المكان', 'الحرباء', 'الثعبان', 'النمر', ['/static/images/puzzle/1/10.png', 'الحرباء']],
-    ['ما هو الحيوان الذي يبني السدود', 'القندس', 'الأسد', 'النمر', ['/static/images/puzzle/1/10.png', 'القندس']],
-    ['ما هو الحيوان الذي يسمى صديق الإنسان', 'الكلب', 'الأسد', 'السمكة', ['/static/images/puzzle/1/10.png', 'الكلب']],
-     // ['', '', '', '',['','']],
+
+    ['/static/images/questions/1/2.png','/static/images/questions/1/3.png','/static/images/questions/1/4.png' ,['/static/images/questions/1/1.mp3', '2']],
+    ['/static/images/questions/2/3.png','/static/images/questions/2/2.png','/static/images/questions/2/4.png' ,['/static/images/questions/2/1.mp3', '2']],
+    ['/static/images/questions/3/3.png','/static/images/questions/3/4.png','/static/images/questions/3/2.png' ,['/static/images/questions/3/1.mp3', '2']],
+    ['/static/images/questions/4/2.png','/static/images/questions/4/4.png','/static/images/questions/4/3.png' ,['/static/images/questions/4/1.mp3', '2']],
+    ['/static/images/questions/5/4.png','/static/images/questions/5/2.png','/static/images/questions/5/3.png' ,['/static/images/questions/5/1.mp3', '2']],
+
 ];

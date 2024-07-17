@@ -1,6 +1,7 @@
 
-// header
+const SITE_DOMIN = 'http://127.0.0.1:8000/'
 
+// header
 
 document.addEventListener('scroll', function () {
     const header = document.querySelector('header');
@@ -37,7 +38,6 @@ const cards = document.querySelectorAll(".card"),
     flipsTag = document.querySelector(".flips b"),
     refreshBtn = document.querySelector(".details button"),
     memoryGameFld = document.querySelector("#memory-game-fld");
-const challengeLetters = document.getElementById('challenge-letters')
 let flips = 0;
 let matchedCard = 0;
 let disableDeck = false;
@@ -57,8 +57,8 @@ function flipCard({ target: clickedCard }) {
         }
         cardTwo = clickedCard;
         disableDeck = true;
-        let cardOneImg = cardOne.querySelector(".back-view img").src.split('/').pop().replace(/^.*?-/, '-').match(/\d+/)[0],
-            cardTwoImg = cardTwo.querySelector(".back-view img").src.split('/').pop().replace(/^.*?-/, '-').match(/\d+/)[0];
+        let cardOneImg = cardOne.querySelector(".back-view img").src.split('/').pop().match(/\d+/)[0],
+            cardTwoImg = cardTwo.querySelector(".back-view img").src.split('/').pop().match(/\d+/)[0];
 
         matchCards(cardOneImg, cardTwoImg);
     }
@@ -66,13 +66,7 @@ function flipCard({ target: clickedCard }) {
 
 
 function matchCards(img1, img2) {
-    if (Number(img1) >= 7) {
-        img1 = Number(img1) - 6
-    }
-    if (Number(img2) >= 7) {
-        img2 = Number(img2) - 6
-    }
-    if (Number(img2) === Number(img1)) {
+    if (img2 === img1) {
         matchedCard++;
 
         cardOne.removeEventListener("click", flipCard);
@@ -135,48 +129,37 @@ function shuffleCard() {
     cardOne = cardTwo = "";
     flipsTag.innerText = flips;
     disableDeck = isPlaying = false;
-
-    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    const randomNumMemory = Math.floor(Math.random() * 5) + 1;
+    console.log(randomNumMemory);
+    let arr = [1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
-    const lettersGame = ['أ-ب-ت-ث-ج-ح', 'خ-د-ذ-ر-ز-س', 'ش-ص-ض-ط-ظ-ع', 'غ-ف-ق-ك-ل-م']
-    const randomNumMeory = Math.floor(Math.random() * 4) + 1;
-    switch (randomNumMeory) {
-        case 1:
-            challengeLetters.innerText = lettersGame[0]
-            break;
-        case 2:
-            challengeLetters.innerText = lettersGame[1]
-            break;
-        case 3:
-            challengeLetters.innerText = lettersGame[2]
-            break;
-        case 4:
-            challengeLetters.innerText = lettersGame[3]
-            break;
-    }
-
     cards.forEach((card, index) => {
-        card.classList.remove("flip");
         let imgTag = card.querySelector(".back-view img");
         setTimeout(() => {
-            if (arr[index] <= 6) {
-                imgTag.src = `../static/images/memory/${randomNumMeory}/img-${arr[index]}.png`;
-            }
-            else {
-                imgTag.src = `../static/images/memory/${randomNumMeory}/Pimg-${arr[index]}.png`;
-            }
+            imgTag.src = `../static/images/memory/${randomNumMemory}/img-${arr[index]}.png`;
         }, 500);
         card.addEventListener("click", flipCard);
     });
+
+    // Show cards for 3 seconds
+    setTimeout(() => {
+        cards.forEach(card => {
+            card.classList.add("flip");
+        });
+
+        // Hide cards again after 3 seconds
+        setTimeout(() => {
+            cards.forEach(card => {
+                card.classList.remove("flip");
+                card.addEventListener("click", flipCard); // Enable click after initial flip
+            });
+        }, 3500);
+    }, 500);
 }
 
-shuffleCard();
+// shuffleCard();
 
 refreshBtn.addEventListener("click", shuffleCard);
-
-cards.forEach(card => {
-    card.addEventListener("click", flipCard);
-});
 
 // memory-game 
 
@@ -185,13 +168,13 @@ cards.forEach(card => {
 
 // puzzle-game 
 
-var rows = 3;
-var columns = 3;
-
+var rows = 2;
+var columns = 2;
 var currTile;
 var otherTile;
-const randomNumPuzzle = Math.floor(Math.random() * 7) + 1;
-var turns = 0;
+const randomNumPuzzle = Math.floor(Math.random() * 8) + 1;
+let turns = 0;
+const puzzleGameFld = document.querySelector("#puzzle-game-fld");
 
 window.onload = function () {
     // Initialize the 3x3 board
@@ -323,7 +306,7 @@ function handleClick() {
 
 // Check if the puzzle is solved
 function checkPuzzleSolved() {
-    if (`${boardDiv.outerHTML}` === `<div class="w-1/2 h-fit max-lg:w-3/4 flex flex-wrap xl:w-5/12" id="board"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/7.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/8.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/9.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/4.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/5.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/6.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/1.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/2.png"><img src="http://127.0.0.1:8000/static/images/puzzle/${randomNumPuzzle}/3.png"></div>`) {
+    if (`${boardDiv.outerHTML}` === `<div class="w-1/2 h-fit max-lg:w-3/4 flex flex-wrap xl:w-5/12" id="board"><img src="${SITE_DOMIN}static/images/puzzle/${randomNumPuzzle}/3.png"><img src="${SITE_DOMIN}static/images/puzzle/${randomNumPuzzle}/4.png"><img src="${SITE_DOMIN}static/images/puzzle/${randomNumPuzzle}/1.png"><img src="${SITE_DOMIN}static/images/puzzle/${randomNumPuzzle}/2.png"></div>`) {
         const duration = 15 * 1000,
             animationEnd = Date.now() + duration,
             defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
@@ -355,6 +338,7 @@ function checkPuzzleSolved() {
                 })
             );
         }, 250);
+        puzzleGameFld.value = turns
     }
 }
 
@@ -364,36 +348,38 @@ function checkPuzzleSolved() {
 
 
 
-
+// Questions-game 
 
 import { Questions } from './questions.js';
-var allQuestions = 10;
-var correct = 0;
-var wrong = 0;
+let allQuestions = 10;
+let correct = 0;
+let wrong = 0;
 
-var imageQuestion = document.getElementById('image-question');
-var theQuestion = document.getElementById('the-question');
-const answers = document.querySelectorAll('.answer p');
+// var imageQuestion = document.getElementById('image-question');
+var theAaudio = document.getElementById('the-audio');
+const imgsAnswers = document.querySelectorAll('.answer img');
+const questionGameFld = document.querySelector("#questions-game-fld");
 
 function establishAnswers() {
     const randQuesGame = Math.floor(Math.random() * Questions.length);
-    imageQuestion.src = Questions[randQuesGame][4][0];
-    imageQuestion.name = Questions[randQuesGame][4][1];
-    theQuestion.textContent = Questions[randQuesGame][0];
-    answers.forEach((answer, index) => {
-        answer.textContent = Questions[randQuesGame][index + 1];
+    setTimeout(() => {
+        theAaudio.src = Questions[randQuesGame][3][0];
+        
+    }, 1000);
+    theAaudio.name = Questions[randQuesGame][3][1];
+    imgsAnswers.forEach((answer, index) => {
+        answer.src = Questions[randQuesGame][index];
         answer.removeEventListener('click', checkAnswer);
         answer.addEventListener('click', checkAnswer);
     });
 }
 
 function checkAnswer(e) {
-    const ans = e.target.textContent;
-    const correctAnswer = imageQuestion.name;
+    const ans = e.target.src.split('/').pop().match(/\d+/)[0];
+    const correctAnswer = theAaudio.name;
     establishAnswers();
     if (correctAnswer === ans) {
         const end = Date.now() + 15 * 1000;
-
         confetti({
             particleCount: 100,
             spread: 70,
@@ -410,8 +396,10 @@ function checkAnswer(e) {
     document.getElementById("all-questions").textContent = allQuestions;
 
     if (allQuestions <= 0) {
-        alert('Game over!');
-        // يمكن إعادة تعيين اللعبة هنا إذا كنت تريد ذلك
+        questionGameFld.value = wrong
+        document.getElementById('questions-game-container').classList.add('hidden')
+        document.getElementById('questions-done').classList.remove('hidden')
+
     }
 }
 
