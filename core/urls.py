@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('competitions/', include('competitions.urls')),
     path('forms/', include('forms.urls')),
+    path('homework/', include('homework.urls')),
 ]
 
 urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -329,3 +329,109 @@ audio::-webkit-media-controls-play-button {
   transform: scale(1.8);
 }
 /* audio */
+
+/* homework cart */
+.homework-cart{
+  min-height: 815px;
+  height: fit-content;
+}
+/* homework cart */
+
+
+
+/* Start Messges  */
+
+.mesg-custome-error{
+  background-color: #c91b1b;
+  width: 100%;
+  border: 1px solid #d51c1c;
+  border-radius: 2px;
+  display: flex;
+
+}
+
+.mesg-custome-error .text{
+  color: #f9f9f9;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.mesg-custome-error .text::before{
+  content: url(../images/icons/456465.png);
+  
+  
+}
+
+
+
+.mesg-custome-success{
+  background-color: #4da123;
+  width: 100%;
+  border: 1px solid #4da123;
+  border-radius: 2px;
+  display: flex;
+
+}
+
+
+.mesg-custome-success .text{
+  color: #f9f9f9;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.mesg-custome-success .text::before{
+  content: url(../images/icons/45655.png);
+  
+  
+}
+
+
+
+
+.mesg-custome-info{
+  background-color: #3789b1;
+  width: 100%;
+  border: 1px solid #3789b1;
+  border-radius: 2px;
+  display: flex;
+
+}
+
+.mesg-custome-info .text{
+  color: #f9f9f9;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.mesg-custome-info .text::before{
+  content: url(../images/icons/48764.png);
+  
+  
+}
+
+
+
+.mesg-custome-warning{
+  background-color: #d18616;
+  width: 100%;
+  border: 1px solid #d18616;
+  border-radius: 2px;
+  display: flex;
+
+}
+
+.mesg-custome-warning .text{
+  color: #f9f9f9;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.mesg-custome-warning .text::before{
+  content: url(../images/icons/786445.png);
+  
+  
+}
+
+
+/* End Messges */

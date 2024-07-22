@@ -50,6 +50,6 @@ def competitions (request):
         mess.send()
         return redirect('competition:competitions')
     else:
-        return render(request,'competitions.html')
+        return render(request,'competitions/competitions.html')
 
 

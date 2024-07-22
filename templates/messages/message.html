@@ -1,0 +1,20 @@
+{% load static %}
+
+{% if messages %}
+
+<div id="message" class="container">
+    {% for message in messages %}
+    <div {% if message.tags %} class="mesg-custome-{{message.tags}}"  style="direction: rtl; text-align: center; padding-left: 33px;" {% endif %} role="alert">
+        <span class="text">{{ message }}</span>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<script>
+    //setTimeout(function(){
+        //$('#message').fadeOut('slow')
+    //},4000)
+
+</script>

@@ -405,7 +405,4 @@ function checkAnswer(e) {
 
 establishAnswers();
 
-
-
-
 // Questions-game 
