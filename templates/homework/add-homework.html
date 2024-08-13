@@ -39,10 +39,10 @@
                         <select
                             class="block appearance-none font-bold w-full  border border-gray-200 text-gray-700 py-3  px-4 pr-8 rounded leading-tight focus:outline-none focus:border-sky-500 "
                             name="educational_level">
-                            <option>KG1</option>
-                            <option>KG2</option>
+                            {% for year in years %}
+                            <option>{{year.year}}</option>
+                            {% endfor %}
                         </select>
-
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@
 
         </div>
     </div>
-
+    <script type="module" src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

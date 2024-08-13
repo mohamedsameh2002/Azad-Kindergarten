@@ -1,13 +1,13 @@
 from django.shortcuts import render
 import locale
-from .models import Homework,Teacher,DeleteHomework
+from .models import Homework,Teacher,Years
 from django.utils import timezone
 from babel.dates import format_date
 import locale
 from django.contrib import messages
-import datetime
 from django.db.models import Case, When, Value
-import shutil
+from datetime import timedelta
+from .signals import delete_old_homeworks
 
 
 def get_arabic_date(date):
@@ -19,15 +19,6 @@ def get_arabic_date(date):
 
 def get_homework(request, year):
     today = timezone.now().today().date()
-    today_name_day = datetime.datetime.today().strftime('%A')
-
-    if today_name_day == 'Friday' and  not DeleteHomework.objects.filter(date=today).exists() :
-        Homework.objects.all().delete()
-        shutil.rmtree('media/homework_images/')
-        DeleteHomework.objects.all().delete()
-        DeleteHomework.objects.create()
-    
-
     weekday_cases = Case(
         When(date__week_day=1, then=Value("Sunday")),
         When(date__week_day=2, then=Value("Monday")),
@@ -45,16 +36,34 @@ def get_homework(request, year):
 
     }
     day=request.GET.get('day')
+
+
+
+    # حساب بداية ونهاية الأسبوع الحالي
+    start_of_this_week = today - timedelta(days=today.weekday())
+    end_of_this_week = start_of_this_week + timedelta(days=6)
+
+    # حساب بداية ونهاية الأسبوع الماضي
+    start_of_last_week = start_of_this_week - timedelta(weeks=1)
+    end_of_last_week = start_of_last_week + timedelta(days=6)
+
+
     if not day:
-        homeworks = Homework.objects.filter(year=year, date=today).order_by('date')
+        homeworks = Homework.objects.filter(year__year=year, date=today).order_by('date').order_by('-time')
+        homeworks_last_week=[]
     else:
-        homeworks = Homework.objects.annotate(day_name=weekday_cases).filter(day_name=day).order_by('date')
+        homeworks = Homework.objects.annotate(day_name=weekday_cases).filter(day_name=day, year__year=year).filter(date__gte=start_of_this_week, date__lte=end_of_this_week).order_by('date').order_by('time')
+        homeworks_last_week = Homework.objects.annotate(day_name=weekday_cases).filter(day_name=day, year__year=year).filter(date__gte=start_of_last_week, date__lte=end_of_last_week).order_by('date').order_by('time')
+        
         
     for homework in homeworks:
+        homework.arabic_date = get_arabic_date(homework.date)
+    for homework in homeworks_last_week:
         homework.arabic_date = get_arabic_date(homework.date)
         
     context = {
         'homeworks': homeworks,
+        'homeworks_last_week': homeworks_last_week,
         'year': year,
         'arabic_dayes': arabic_dayes.get(day,None),
     }
@@ -62,6 +71,7 @@ def get_homework(request, year):
 
 
 def add_homework(request):
+    years=Years.objects.all()
     if request.method == 'POST':
         teacher_number=request.POST['teacher_number']
         educational_level=request.POST['educational_level']
@@ -71,8 +81,9 @@ def add_homework(request):
         homework_img_3=request.FILES.get('homework-img-3',None)
         try:
             teacher=Teacher.objects.get(number=teacher_number)
+            year=Years.objects.get(year=educational_level)
             Homework.objects.create(
-                year=educational_level,
+                year=year,
                 teacher=teacher,
                 homework=homework,
                 image_1=homework_img_1,
@@ -82,7 +93,7 @@ def add_homework(request):
             messages.success(request,'تم اضافة الواجب المنزلي بنجاح')
         except:
             messages.error(request,'تم ادخال رقم تعريفي خاطئ.')
-        return render(request,'homework/add-homework.html') 
+        return render(request,'homework/add-homework.html',context={'years':years}) 
     else:
-        return render(request,'homework/add-homework.html') 
+        return render(request,'homework/add-homework.html',context={'years':years}) 
     

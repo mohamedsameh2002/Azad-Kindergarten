@@ -1,69 +1,114 @@
 <header class="flex duration-150 z-10 fixed justify-center items-start w-full" style="background-color: #f7edeb;">
-    <div class="container max-md:px-8 flex max-md:justify-between justify-around items-start">
-        <ul class='flex pt-6 max-md:hidden gap-10 '>
+    <div class="container max-lg:px-8 flex max-lg:justify-between justify-around items-start">
+        <ul class='flex pt-6 max-lg:hidden gap-10 '>
             <li>
-                <a href=""
+                <a href="https://azad1.pythonanywhere.com/competitions/"
+                    class='text-lg font-bold {% if "competitions" in request.path %} border-b-2 text-5xl !text-orange-600/60  {% endif %}  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
+                    style="color: #5f9598;">العب و تعلم</a>
+            </li>
+            <li>
+                <a href="https://azadjo.com/connect-us"
                     class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                     style="color: #5f9598;">تواصل معنا</a>
             </li>
             <li>
-                <a href=""
+                <a href="https://azadjo.com/activities-and-events"
                     class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                     style="color: #5f9598;">الأنشطة و الفاعليات</a>
             </li>
+            <li class="group">
+                <h3 style="color: #5f9598;"
+                    class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 cursor-pointer '>
+                    الواجب المنزلي</h3>
+                <ul style="background-color: #f7edeb;"
+                    class=" absolute p-8 gap-2 rounded-lg  shadow-xl hidden group-hover:flex flex-col ">
+                    <li>
+                        <a href="https://azad1.pythonanywhere.com/homework/get/KG1/"
+                            class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
+                            style="color: #5f9598;">KG1</a>
+                    </li>
+                    <li>
+                        <a href="https://azad1.pythonanywhere.com/homework/get/KG2/"
+                            class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
+                            style="color: #5f9598;">KG2</a>
+                    </li>
+                </ul>
+            </li>
             <li>
-                <a href="https://teal-raven-765944.builder-preview.com/aqsam-alrwdhh"
+                <a href="https://azadjo.com/aqsam-alrwdhh"
                     class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                     style="color: #5f9598;">أقسام الروضة</a>
             </li>
             <li>
-                <a href="https://teal-raven-765944.builder-preview.com/our-message"
+                <a href="https://azadjo.com/our-message"
                     class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                     style="color: #5f9598;">رسالتنا</a>
             </li>
             <li>
-                <a href="https://teal-raven-765944.builder-preview.com/"
+                <a href="https://azadjo.com/"
                     class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                     style="color: #5f9598;">الرئيسية</a>
             </li>
 
         </ul>
-        <div class="max-md:flex pt-6 hidden gap-8 flex-col">
+        <div class="max-lg:flex pt-6 hidden gap-8 flex-col">
             <div id="three-dashes" class="flex gap-2 relative h-fit cursor-pointer flex-col">
-                <div class="w-8 h-1 relative rounded-xl duration-500 transition "
-                    style="background-color: #5f9598;"></div>
-                <div class="w-8 h-1 relative rounded-xl duration-500 transition "
-                    style="background-color: #5f9598;"></div>
-                <div class="w-8 h-1 relative  rounded-xl duration-500 transition "
-                    style="background-color: #5f9598;"></div>
+                <div class="w-8 h-1 relative rounded-xl duration-500 transition " style="background-color: #5f9598;">
+                </div>
+                <div class="w-8 h-1 relative rounded-xl duration-500 transition " style="background-color: #5f9598;">
+                </div>
+                <div class="w-8 h-1 relative  rounded-xl duration-500 transition " style="background-color: #5f9598;">
+                </div>
             </div>
             <ul id="mobile-menu" class='flex relative duration-500 transition-all hidden flex-col pb-6 gap-10 '>
                 <li>
-                    <a href=""
+                    <a href="https://azad1.pythonanywhere.com/competitions/"
+                        class='text-lg font-bold {% if "competitions" in request.path %} border-b-2 text-5xl !text-orange-600/60  {% endif %}  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
+                        style="color: #5f9598;">العب و تعلم</a>
+                </li>
+                <li>
+                    <a href="https://azadjo.com/connect-us"
                         class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                         style="color: #5f9598;">تواصل معنا</a>
                 </li>
                 <li>
-                    <a href=""
+                    <a href="https://azadjo.com/activities-and-events"
                         class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                         style="color: #5f9598;">الأنشطة و الفاعليات</a>
                 </li>
+                <li class="group">
+                    <h3 style="color: #5f9598;"
+                        class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 cursor-pointer '>
+                        الواجب المنزلي</h3>
+                    <ul style="background-color: #f7edeb;"
+                        class=" gap-2 mt-4 px-4  hidden group-hover:flex flex-col justify-center ">
+                        <li>
+                            <a href="https://azad1.pythonanywhere.com/homework/get/KG1/"
+                                class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
+                                style="color: #5f9598;">KG1</a>
+                        </li>
+                        <li>
+                            <a href="https://azad1.pythonanywhere.com/homework/get/KG2/"
+                                class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
+                                style="color: #5f9598;">KG2</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
-                    <a href="https://teal-raven-765944.builder-preview.com/aqsam-alrwdhh"
+                    <a href="https://azadjo.com/aqsam-alrwdhh"
                         class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                         style="color: #5f9598;">أقسام الروضة</a>
                 </li>
                 <li>
-                    <a href="https://teal-raven-765944.builder-preview.com/our-message"
+                    <a href="https://azadjo.com/our-message"
                         class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                         style="color: #5f9598;">رسالتنا</a>
                 </li>
                 <li>
-                    <a href="https://teal-raven-765944.builder-preview.com/"
+                    <a href="https://azadjo.com/"
                         class='text-lg font-bold  hover:border-b-2  border-orange-600/60 hover:!text-orange-600/60 '
                         style="color: #5f9598;">الرئيسية</a>
                 </li>
-
             </ul>
         </div>
 

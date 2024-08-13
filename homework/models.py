@@ -2,8 +2,7 @@ from django.db import models
 from PIL import Image
 from io import BytesIO
 from django.core.files.base import ContentFile
-from django.core.validators import MaxValueValidator, MinValueValidator
-
+from django.utils import timezone
 
 
 class Teacher (models.Model):
@@ -13,25 +12,26 @@ class Teacher (models.Model):
         return self.name
 
 
-class DeleteHomework (models.Model):
-    date = models.DateField(auto_now_add=True)
-
-
+class Years (models.Model):
+    year = models.CharField(max_length=20,unique=True)
+    def __str__(self) -> str:
+        return self.year
 
 class Homework(models.Model):
     THE_YEARS=[
         ('KG1','KG1'),
         ('KG2','KG2'),
     ]
-    year = models.CharField(max_length=10, choices=THE_YEARS)
+    year = models.ForeignKey(Years,on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE,null=True)
     homework = models.TextField(max_length=2000)
     date = models.DateField(auto_now_add=True)
+    time = models.TimeField(default=timezone.now())
     image_1 = models.ImageField(upload_to='homework_images/',blank=True,null=True)
     image_2 = models.ImageField(upload_to='homework_images/',blank=True,null=True)
     image_3 = models.ImageField(upload_to='homework_images/',blank=True,null=True)
     def __str__(self) -> str:
-        return self.year
+        return self.teacher.name
 
     def save(self, *args, **kwargs):
         # Resize image_1
@@ -56,6 +56,3 @@ class Homework(models.Model):
 
 
 
-class DeleteHomework (models.Model):
-    delete=models.BooleanField(default=True)
-    date = models.DateField(auto_now_add=True)

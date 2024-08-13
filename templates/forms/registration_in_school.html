@@ -17,7 +17,28 @@
     <!-- header -->
 
     <!-- hero -->
-    {% include "components/hero.html" %}
+
+
+
+
+
+    <div
+        class="flex h-screen max-md:gap-10 max-md:flex-col bg-gradient-to-t from-orange-100/60  to-white w-full max-md:justify-center justify-around items-center  ">
+        <div
+            class="flex max-md:order-1 flex-col gap-5 max-md:items-center justify-start items-start max-md:w-11/12 w-2/5 ">
+            <img class="w-44 max-md:hidden" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=636,h=258,fit=crop/Yg29bxB25nFq1r6k/untitled-1-12-m7Vpe3VjyBTL9P29.png" alt="icon">
+            <h1 class="font-extrabold leading-normal	 max-md:text-center text-6xl max-lg:text-4xl w-fit"
+                style="color: #5f9598;">ابدأ رحلة تعليم طفلك في روضتنا المميزة</h1>
+            <p class="text-xl max-md:text-center text-zinc-700">نرحب بكم في روضة ازاد، المكان الذي يبدأ فيه طفلكم أولى خطواته التعليمية في بيئة آمنة، ممتعة، ومليئة بالتعلم والاكتشاف. نسعى جاهدين لتوفير أفضل الرعاية والتعليم لأطفالكم من خلال منهج تعليمي متطور ومعلمين مؤهلين. انضموا إلينا الآن لنمنح طفلكم بداية رائعة ومشرقة.</p>
+        </div>
+        <div class="flex  max-md:w-10/12 w-2/5 justify-center items-center">
+            <img src="https://assets.zyrosite.com/Yg29bxB25nFq1r6k/welcome-azad-final-gif-m5KvoBKw7Ktz6Bbx.gif" alt="icon">
+        </div>
+    </div>
+
+
+
+
     <!-- hero -->
 
     <div class="flex justify-center h-fit py-24 items-center">
@@ -473,7 +494,7 @@
         </div>
     </div>
 
-    <script src="{% static 'js/main.js' %}"></script>
+    <script type="module" src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

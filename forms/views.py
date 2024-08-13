@@ -263,12 +263,12 @@ def generate_pdf(l,v,*args, **kwargs):
 
 
 
-def send_email_with_pdf(column_1_lable,column_2_lable,column_1_value,column_2_value,three_val):
+def send_email_with_pdf(lables,values,lables_2,values_2):
     subject = "PDF Attachment"
     body = "Please find the PDF attached."
     from_email = 'sistar32.m@gmail.com'
 
-    pdf_buffer = generate_pdf(column_1_lable,column_2_lable,column_1_value,column_2_value,three_val)
+    pdf_buffer = generate_pdf(lables,values,lables_2,values_2)
     email = EmailMessage(subject, body, from_email, ['mohamed.403.sameh@gmail.com'])
     email.attach('hello.pdf', pdf_buffer.getvalue(), 'application/pdf')
 
@@ -385,8 +385,8 @@ def registration_in_school (request):
             [There_special_circumstances],
             [other_comments],
             ]
-        return generate_pdf(lables,values,lables_2,values_2)
-    # return send_email_with_pdf(column_1_lable,column_2_lable,column_1_value,column_2_value,three_val,email)
+        # return generate_pdf(lables,values,lables_2,values_2)
+        return send_email_with_pdf(lables,values,lables_2,values_2)
     return render(request,'forms/registration_in_school.html')
 
 
